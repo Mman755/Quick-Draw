@@ -90,15 +90,14 @@ public class CreateProfileController {
       // Check if the username field contains a space as we do not allow this to be a valid char in
       // username
       showAlert("Username must not contain any spaces", "Invalid username format");
+
     } else if (Database.userExists(usernameField.getText(), false)) {
       // Check if the username the user entered already exists, as we do not allow duplicate
-      // profiles
-      // we inform the user
+      // profiles we inform the user
       showAlert("A profile with this name already exists", "User already exists");
-    }
 
-    // If criteria is met then we use our Database class to write the user to system
-    else {
+    } else {
+      // If criteria is met then we use our Database class to write the user to system
       String imgName = allUserImages[index].getName();
       User newUser = new User(usernameField.getText(), imgName);
       Database.write(newUser);
@@ -112,6 +111,8 @@ public class CreateProfileController {
       // Create the scene and change the root
       Scene scene = ((Node) event.getSource()).getScene();
       scene.setRoot(SceneManager.getUiRoot(SceneManager.AppUi.USER_MENU));
+
+      // restore the state of the scene to be ready for the next user to create a profile
       usernameField.clear();
       index++;
       if (index < 6) {

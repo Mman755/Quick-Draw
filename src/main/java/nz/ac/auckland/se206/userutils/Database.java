@@ -96,7 +96,7 @@ public class Database {
   public static User[] getAllUsers() throws IOException {
     // Initialize an array of type User, and ensure it's empty so that it's returned if users
     // directory doesn't exist
-    User[] users = {};
+    User[] users;
     // Obtain all the currently registered user profiles
     File userDir = new File("users");
     File[] allUserFiles;

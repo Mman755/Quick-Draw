@@ -33,49 +33,50 @@ public class BadgesController {
     // Obtain the current user instance
     User currentUser = Database.read(userName);
 
-    // Conditionals used to check current user's wins and display badges accordingly
+    // Check if user has five consecutive wins and display badge
     if (currentUser.fiveConsecutiveWins()) {
       bronzeWins.getTooltip().setText("JUNIOR ARTIST! \n For winning 5 games in a row.");
       bronzeWins.setDisable(false);
     }
-    // Check if user has ten consecutive wins and apply badge
+    // Check if user has ten consecutive wins and display badge
     if (currentUser.tenConsecutiveWins()) {
       silverWins.getTooltip().setText("INTERMEDIATE ARTIST! \n For winning 10 games in a row.");
       silverWins.setDisable(false);
     }
-    // Check if user has twenty consecutive wins and apply badge
+    // Check if user has twenty consecutive wins and display badge
     if (currentUser.twentyConsecutiveWins()) {
       goldWins.getTooltip().setText("MASTER ARTIST! \n For winning 20 games in a row.");
       goldWins.setDisable(false);
     }
 
-    // Conditionals used to check current user's games played and display badges accordingly
+    // Check if user has twenty-five games played and display badge
     if (currentUser.twentyFiveGamesPlayed()) {
       bronzeGames.getTooltip().setText("EXPERIENCED SKETCHER! \n For playing 25 games.");
       bronzeGames.setDisable(false);
     }
-
+    // Check if user has fifty games played and display badge
     if (currentUser.fiftyGamesPlayed()) {
       silverGames.getTooltip().setText("DEDICATED SKETCHER! \n For playing 50 games.");
       silverGames.setDisable(false);
     }
-
+    // Check if user has one hundred games played and display badge
     if (currentUser.hundredGamesPlayed()) {
       goldGames.getTooltip().setText("SUPERSTAR SKETCHER! \n For playing 100 games.");
       goldGames.setDisable(false);
     }
 
-    // Conditionals used to check current user's fastest time and display badges accordingly
+    // Check if user has won a game under 30 seconds and display badge
     if (currentUser.underThirtySeconds()) {
       bronzeTime.getTooltip().setText("QUICK DRAWER! \n For winning a game under 30 seconds.");
       bronzeTime.setDisable(false);
     }
 
+    // Check if user has won a game under 20 seconds and display badge
     if (currentUser.underTwentySeconds()) {
       silverTime.getTooltip().setText("SPEEDY SKETCHER! \n For winning a game under 20 seconds.");
       silverTime.setDisable(false);
     }
-    // If user has wins under ten seconds apply badge
+    // Check if user has won a game under 10 seconds and display badge
     if (currentUser.underTenSeconds()) {
       goldTime
           .getTooltip()

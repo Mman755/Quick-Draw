@@ -85,6 +85,7 @@ public class ZenCanvasController extends CanvasController {
    * Method run when user click "Ready" to disable buttons, set the pen colour, and run the timer.
    */
   @Override
+  @FXML
   protected void onReady() throws MalformedURLException {
     // Start playing the song associated with zen mode when user is ready
     playGameModeMusic("src/main/resources/sounds/zen.mp3");
@@ -233,7 +234,7 @@ public class ZenCanvasController extends CanvasController {
    * different colours.
    */
   @FXML
-  private void switchPenColour() {
+  private void onSwitchPenColour() {
     if (!this.eraseBtn.isDisabled()) { // only switch colour if we are currently on ink (not eraser)
       this.color = this.colourSwitcher.getValue();
     }
@@ -268,6 +269,7 @@ public class ZenCanvasController extends CanvasController {
    * @throws IOException If there is an error in regenerating the word
    */
   @Override
+  @FXML
   protected void onNewGame() throws IOException {
     // change song to the background song, if we're currently on zen mode
     if (songPlayer

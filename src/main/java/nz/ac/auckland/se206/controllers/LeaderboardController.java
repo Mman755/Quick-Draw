@@ -31,7 +31,6 @@ public class LeaderboardController {
    * their current statistics.
    */
   private void initialiseLeaderboard() {
-
     // initialising contents of each section of the leaderboard
     iconColumn.setCellValueFactory(new PropertyValueFactory<>("userIcon"));
     usernameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));

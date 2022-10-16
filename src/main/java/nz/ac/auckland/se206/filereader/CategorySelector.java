@@ -15,8 +15,8 @@ import java.util.Random;
 import nz.ac.auckland.se206.util.enums.WordSettings;
 
 public class CategorySelector {
-  private Map<WordSettings, List<String>> difficultyCat;
   private static Map<String, String> wordDifficultyMap;
+  private Map<WordSettings, List<String>> difficultyCat;
 
   /**
    * Instantiates CategorySelector object by reading words from the CSV and placing them in hashmap,

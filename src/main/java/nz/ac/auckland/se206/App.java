@@ -35,6 +35,16 @@ public class App extends Application {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
   }
 
+  /** Static method that can be used by other controllers to pause the background music. */
+  public static void pauseBackgroundMusic() {
+    backgroundSongPlayer.stop();
+  }
+
+  /** Static method that can be used by other controllers to play the background music. */
+  public static void playBackgroundMusic() {
+    backgroundSongPlayer.play();
+  }
+
   /**
    * This method is invoked when the application starts. It loads and shows the "Canvas" scene.
    *
@@ -78,15 +88,5 @@ public class App extends Application {
           Platform.exit();
           System.exit(0);
         });
-  }
-
-  /** Static method that can be used by other controllers to pause the background music. */
-  public static void pauseBackgroundMusic() {
-    backgroundSongPlayer.stop();
-  }
-
-  /** Static method that can be used by other controllers to play the background music. */
-  public static void playBackgroundMusic() {
-    backgroundSongPlayer.play();
   }
 }

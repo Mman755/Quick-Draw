@@ -311,7 +311,7 @@ public class GameSettingsController {
         case "HARD" -> confidence = "";
         case "MASTER" -> confidence = "super";
       }
-      confidenceDesc.setText("We'll make guesses we are " + confidence + " confident about!");
+      confidenceDesc.setText("You can win with guesses we are " + confidence + " confident about!");
     }
   }
 }

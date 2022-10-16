@@ -86,15 +86,14 @@ public class CreateProfileController {
    */
   @FXML
   private void onCreateProfile(ActionEvent event) throws IOException {
-    // Check if the username field contains a space as we do not allow this to be a valid char in
-    // username
     if (usernameField.getText().contains(" ")) {
+      // Check if the username field contains a space as we do not allow this to be a valid char in
+      // username
       showAlert("Username must not contain any spaces", "Invalid username format");
-    }
-
-    // Check if the username the user entered already exists, as we do not allow duplicate profiles
-    // we inform the user
-    else if (Database.userExists(usernameField.getText(), false)) {
+    } else if (Database.userExists(usernameField.getText(), false)) {
+      // Check if the username the user entered already exists, as we do not allow duplicate
+      // profiles
+      // we inform the user
       showAlert("A profile with this name already exists", "User already exists");
     }
 

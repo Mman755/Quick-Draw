@@ -97,14 +97,14 @@ public class MenuController implements Initializable {
   private void onGameModeToggleLeft() {
     // Handling user toggling to the left
     switch (this.currentGameMode) {
-        // If user toggles to NORMAL mode
       case NORMAL -> {
+        // If user toggles to NORMAL mode
         startGame.setText("Start Hidden Word Game!");
         this.currentGameMode = GameMode.HIDDEN;
         setHiddenStyle();
       }
-        // If user toggles to ZEN mode
       case ZEN -> {
+        // If user toggles to ZEN mode
         startGame.setText("Start Classic Game!");
         this.currentGameMode = GameMode.NORMAL;
         setClassicStyle();

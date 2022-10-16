@@ -1,9 +1,7 @@
 package nz.ac.auckland.se206;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -82,17 +80,12 @@ public class App extends Application {
         });
   }
 
-  /**
-   * Static method that can be used by other controllers to pause the background
-   * music.
-   */
+  /** Static method that can be used by other controllers to pause the background music. */
   public static void pauseBackgroundMusic() {
     backgroundSongPlayer.stop();
   }
 
-  /**
-   * Static method that can be used by other controllers to play the background music.
-   */
+  /** Static method that can be used by other controllers to play the background music. */
   public static void playBackgroundMusic() {
     backgroundSongPlayer.play();
   }

@@ -65,6 +65,7 @@ public class LeaderboardController {
     // initially sort leaderboard by number of wins
     leaderboard.getSortOrder().setAll(winsColumn);
   }
+
   /**
    * This method switches back to the main menu page of the game via a button click.
    *

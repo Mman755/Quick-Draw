@@ -90,7 +90,7 @@
                                     <Tooltip text="Pen" />
                                  </tooltip>
                               </Button>
-                              <ColorPicker fx:id="colourSwitcher" onAction="#switchPenColour" prefHeight="56.0" prefWidth="56.0" promptText="Pen Colour">
+                              <ColorPicker fx:id="colourSwitcher" onAction="#onSwitchPenColour" prefHeight="56.0" prefWidth="56.0" promptText="Pen Colour">
                                  <value>
                                     <Color />
                                  </value>

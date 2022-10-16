@@ -63,8 +63,8 @@ public class SceneManager {
   }
 
   /**
-   * Static method that changes the speaker icons in all the controllers when the music
-   * is muted/unmuted.
+   * Static method that changes the speaker icons in all the controllers when the music is
+   * muted/unmuted.
    */
   public static void toggleAllSpeakerIcons() {
     for (AppUi currentUI : sceneMap.keySet()) {

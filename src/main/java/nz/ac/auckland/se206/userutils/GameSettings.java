@@ -58,10 +58,13 @@ public class GameSettings {
    */
   public int getIndexOnLoad(String diff) {
     return switch (diff) {
+        // Depending on the difficulty given we simply return the corresponding int associated with
+        // that difficulty
       case "EASY" -> 0;
       case "MEDIUM" -> 1;
       case "HARD" -> 2;
       case "MASTER" -> 3;
+        // Default to throw exception
       default -> throw new IllegalArgumentException("Unexpected value");
     };
   }

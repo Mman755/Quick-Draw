@@ -3,18 +3,14 @@ package nz.ac.auckland.se206.controllers;
 import com.opencsv.exceptions.CsvException;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
@@ -31,9 +27,6 @@ public class MenuController extends Controller {
   /**
    * Initialises the GUI by rendering GUI elements and setting the default value of the game mode to
    * normal/classic.
-   *
-   * @param url URL of GUI
-   * @param resourceBundle Resource bundle of GUI
    */
   public void initialize() {
     this.currentGameMode = GameMode.NORMAL;
@@ -98,14 +91,14 @@ public class MenuController extends Controller {
   private void onGameModeToggleLeft() {
     // Handling user toggling to the left
     switch (this.currentGameMode) {
-        // If user toggles to NORMAL mode
       case NORMAL -> {
+        // If user toggles to NORMAL mode
         startGame.setText("Start Hidden Word Game!");
         this.currentGameMode = GameMode.HIDDEN;
         setHiddenStyle();
       }
-        // If user toggles to ZEN mode
       case ZEN -> {
+        // If user toggles to ZEN mode
         startGame.setText("Start Classic Game!");
         this.currentGameMode = GameMode.NORMAL;
         setClassicStyle();

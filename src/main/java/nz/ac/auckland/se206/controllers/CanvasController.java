@@ -91,6 +91,7 @@ public abstract class CanvasController extends Controller {
         .addListener(
             (observable, oldValue, newValue) ->
                 songPlayer.setVolume(volumeSlider.getValue() * 0.01));
+    // initialise GUI for the first game played by the user
     startGame();
   }
 
@@ -316,16 +317,22 @@ public abstract class CanvasController extends Controller {
   /**
    * This method re-initialises the canvas scene for a new game to be played, i.e. it clears the
    * canvas, disables the timer button and allows the user to indicate when they are ready again.
+   *
+   * @throws IOException if there is an issue reading in the relevant user data.
    */
   @FXML
   protected void onNewGame() throws IOException {
-    // If the user wants to play a new game we clear the canvas and the user gets a new word to draw
+    // If the user wants to play a new game we clear the canvas
     onClear();
+    // Adjust visibility of timer and ready button
     timerCount.setVisible(false);
     readyButton.setDisable(false);
     setUserName(userName);
+    // Begin the game and user will get a new word to draw
     startGame();
-    predLabel.setText("Click the \"Start!\" button to start drawing and view the guesses.");
+    // Inform the user to press start in order to begin the game
+    predLabel.setText("Click the \"Start!\" button to start drawing and view the guesses made!");
+    // Update progress bar colour for consistency
     changeProgressBarColour();
   }
 
@@ -442,7 +449,6 @@ public abstract class CanvasController extends Controller {
    * This method plays the win/lose notification sound upon conclusion of a game.
    *
    * @param won Boolean indicating whether the user won or not
-   * @throws URISyntaxException If there's an exception in converting to URI
    */
   public void playNotification(boolean won) {
     String soundFilePath = won ? "/sounds/win.wav" : "/sounds/lose.wav";

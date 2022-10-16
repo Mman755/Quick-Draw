@@ -182,8 +182,8 @@ public class User {
 
   /**
    * This method takes input some integer representing time and if that time integer is smaller than
-   * the current fastest time (or if this is the first game) we set the current fastest time to
-   * the parameter.
+   * the current fastest time (or if this is the first game) we set the current fastest time to the
+   * parameter.
    *
    * @param fastestTime Some time value from a game played by the user
    */

@@ -13,16 +13,10 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
- * This is the controller of the canvas. You are free to modify this class and the corresponding
- * FXML file as you see fit. For example, you might no longer need the "Predict" button because the
- * DL model should be automatically queried in the background every second.
- *
- * <p>!! IMPORTANT !!
- *
- * <p>Although we added the scale of the image, you need to be careful when changing the size of the
- * drawable canvas and the brush size. If you make the brush too big or too small with respect to
- * the canvas size, the ML model will not work correctly. So be careful. If you make some changes in
- * the canvas and brush sizes, make sure that the prediction works fine.
+ * This is the controller of the canvas. Be careful when changing the size of the drawable canvas
+ * and the brush size. If you make the brush too big or too small with respect to the canvas size,
+ * the ML model will not work correctly. So be careful. If you make some changes in the canvas and
+ * brush sizes, make sure that the prediction works fine.
  */
 public class NormalCanvasController extends CanvasController {
   @FXML private Button speakWord;
@@ -44,6 +38,7 @@ public class NormalCanvasController extends CanvasController {
    * Method run when user click "Ready" to disable buttons, set the pen colour, and run the timer.
    */
   @Override
+  @FXML
   protected void onReady() throws MalformedURLException {
     timerCount.setTextFill(Color.color(0.8, 0.6, 0.06));
     // Play music associated with normal game mode when user is ready
@@ -66,7 +61,7 @@ public class NormalCanvasController extends CanvasController {
    */
   @Override
   protected void runTimer() {
-    counter = user.getCurrentTimeSetting() + 1;
+    counter = 1 + user.getCurrentTimeSetting();
     // Runs a 60-second timer countdown when timer is called and the task runs
     Timer timer = new Timer();
     TimerTask task =
@@ -82,7 +77,7 @@ public class NormalCanvasController extends CanvasController {
             // Here we call the predictions' method (onDraw()) only if user has actually begun
             // drawing on the canvas
             // Surrounded in try and catch for exception handling
-            if (isContent && !gameWon) {
+            if (!gameWon && isContent) {
               Platform.runLater(
                   () -> {
                     try {

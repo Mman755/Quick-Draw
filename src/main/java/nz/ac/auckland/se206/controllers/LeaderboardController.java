@@ -10,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
@@ -32,7 +31,6 @@ public class LeaderboardController extends Controller {
    * their current statistics.
    */
   private void initialiseLeaderboard() {
-
     // initialising contents of each section of the leaderboard
     iconColumn.setCellValueFactory(new PropertyValueFactory<>("userIcon"));
     usernameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
@@ -71,6 +69,7 @@ public class LeaderboardController extends Controller {
     // initially sort leaderboard by number of wins
     leaderboard.getSortOrder().setAll(winsColumn);
   }
+
   /**
    * This method switches back to the main menu page of the game via a button click.
    *

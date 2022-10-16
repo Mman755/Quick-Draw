@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
@@ -87,20 +86,18 @@ public class CreateProfileController extends Controller {
    */
   @FXML
   private void onCreateProfile(ActionEvent event) throws IOException {
-    // Check if the username field contains a space as we do not allow this to be a valid char in
-    // username
     if (usernameField.getText().contains(" ")) {
+      // Check if the username field contains a space as we do not allow this to be a valid char in
+      // username
       showAlert("Username must not contain any spaces", "Invalid username format");
-    }
 
-    // Check if the username the user entered already exists, as we do not allow duplicate profiles
-    // we inform the user
-    else if (Database.userExists(usernameField.getText(), false)) {
+    } else if (Database.userExists(usernameField.getText(), false)) {
+      // Check if the username the user entered already exists, as we do not allow duplicate
+      // profiles we inform the user
       showAlert("A profile with this name already exists", "User already exists");
-    }
 
-    // If criteria is met then we use our Database class to write the user to system
-    else {
+    } else {
+      // If criteria is met then we use our Database class to write the user to system
       String imgName = allUserImages[index].getName();
       User newUser = new User(usernameField.getText(), imgName);
       Database.write(newUser);
@@ -114,6 +111,8 @@ public class CreateProfileController extends Controller {
       // Create the scene and change the root
       Scene scene = ((Node) event.getSource()).getScene();
       scene.setRoot(SceneManager.getUiRoot(SceneManager.AppUi.USER_MENU));
+
+      // restore the state of the scene to be ready for the next user to create a profile
       usernameField.clear();
       index++;
       if (index < 6) {

@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.userutils.GameSettings;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
@@ -42,17 +41,17 @@ public class GameSettingsController extends Controller {
   private @FXML Button doneBtn;
 
   private final String[] accuracyList =
-          Arrays.stream(AccuracySettings.values())
-                  .map(AccuracySettings::toString)
-                  .toArray(String[]::new);
+      Arrays.stream(AccuracySettings.values())
+          .map(AccuracySettings::toString)
+          .toArray(String[]::new);
   private final String[] timeList =
-          Arrays.stream(TimeSettings.values()).map(TimeSettings::toString).toArray(String[]::new);
+      Arrays.stream(TimeSettings.values()).map(TimeSettings::toString).toArray(String[]::new);
   private final String[] confidenceList =
-          Arrays.stream(ConfidenceSettings.values())
-                  .map(ConfidenceSettings::toString)
-                  .toArray(String[]::new);
+      Arrays.stream(ConfidenceSettings.values())
+          .map(ConfidenceSettings::toString)
+          .toArray(String[]::new);
   private final String[] wordList =
-          Arrays.stream(WordSettings.values()).map(WordSettings::toString).toArray(String[]::new);
+      Arrays.stream(WordSettings.values()).map(WordSettings::toString).toArray(String[]::new);
   private User currentUser;
 
   /**
@@ -120,7 +119,7 @@ public class GameSettingsController extends Controller {
    * @param toggle a boolean indicating whether the toggle up or down button was pressed.
    */
   private void setDifficultyLabelToScene(
-          int currIndex, String[] difficultyList, Label labelToSet, boolean toggle) {
+      int currIndex, String[] difficultyList, Label labelToSet, boolean toggle) {
     // If user wants to up the difficulty we check if the current index is less than the sum of all
     // difficulties for that setting, if so we increment the index for that setting
     if (toggle) {
@@ -240,8 +239,8 @@ public class GameSettingsController extends Controller {
   private void onExitScene() {
     // Update current users game settings to the updated settings.
     GameSettings gameSettings =
-            new GameSettings(
-                    this.accuracySettings, this.timeSettings, this.confidenceSettings, this.wordSettings);
+        new GameSettings(
+            this.accuracySettings, this.timeSettings, this.confidenceSettings, this.wordSettings);
     // Set the new game settings in the user profile class
     currentUser.setGameSettings(gameSettings);
     // Write information to user file
@@ -276,7 +275,7 @@ public class GameSettingsController extends Controller {
       }
       if (!difficulty.equals("HARD")) {
         accuracyDesc.setText(
-                "You can win if the word to draw is in the Top " + topCount + " Guesses!");
+            "You can win if the word to draw is in the Top " + topCount + " Guesses!");
       } else {
         accuracyDesc.setText("You can win if the word to draw is the Top Guess!");
       }
@@ -312,7 +311,7 @@ public class GameSettingsController extends Controller {
         case "HARD" -> confidence = "";
         case "MASTER" -> confidence = "super";
       }
-      confidenceDesc.setText("We'll make guesses we are " + confidence + " confident about!");
+      confidenceDesc.setText("You can win with guesses we are " + confidence + " confident about!");
     }
   }
 }

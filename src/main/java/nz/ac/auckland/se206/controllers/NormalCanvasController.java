@@ -61,7 +61,7 @@ public class NormalCanvasController extends CanvasController {
    */
   @Override
   protected void runTimer() {
-    counter = user.getCurrentTimeSetting() + 1;
+    counter = 1 + user.getCurrentTimeSetting();
     // Runs a 60-second timer countdown when timer is called and the task runs
     Timer timer = new Timer();
     TimerTask task =
@@ -77,7 +77,7 @@ public class NormalCanvasController extends CanvasController {
             // Here we call the predictions' method (onDraw()) only if user has actually begun
             // drawing on the canvas
             // Surrounded in try and catch for exception handling
-            if (isContent && !gameWon) {
+            if (!gameWon && isContent) {
               Platform.runLater(
                   () -> {
                     try {

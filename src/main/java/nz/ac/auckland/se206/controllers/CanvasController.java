@@ -320,10 +320,14 @@ public abstract class CanvasController {
   protected void onNewGame() throws IOException {
     // If the user wants to play a new game we clear the canvas and the user gets a new word to draw
     onClear();
+    // Adjust visibility on timer and ready button
     timerCount.setVisible(false);
     readyButton.setDisable(false);
+    // Set the username to GUI
     setUserName(userName);
+    // Begin the game
     startGame();
+    // Inform the user to press start in order to begin the game
     predLabel.setText("Click the \"Start!\" button to start drawing and view the guesses made!");
     changeProgressBarColour();
   }

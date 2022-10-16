@@ -30,6 +30,7 @@ public class BadgesController {
    *     Database.
    */
   protected void setBadgesForUser(String userName) throws IOException {
+    // Obtain the current user instance
     User currentUser = Database.read(userName);
 
     // Conditionals used to check current user's wins and display badges accordingly
@@ -37,12 +38,12 @@ public class BadgesController {
       bronzeWins.getTooltip().setText("JUNIOR ARTIST! \n For winning 5 games in a row.");
       bronzeWins.setDisable(false);
     }
-
+    // Check if user has ten consecutive wins and apply badge
     if (currentUser.tenConsecutiveWins()) {
       silverWins.getTooltip().setText("INTERMEDIATE ARTIST! \n For winning 10 games in a row.");
       silverWins.setDisable(false);
     }
-
+    // Check if user has twenty consecutive wins and apply badge
     if (currentUser.twentyConsecutiveWins()) {
       goldWins.getTooltip().setText("MASTER ARTIST! \n For winning 20 games in a row.");
       goldWins.setDisable(false);
@@ -74,7 +75,7 @@ public class BadgesController {
       silverTime.getTooltip().setText("SPEEDY SKETCHER! \n For winning a game under 20 seconds.");
       silverTime.setDisable(false);
     }
-
+    // If user has wins under ten seconds apply badge
     if (currentUser.underTenSeconds()) {
       goldTime
           .getTooltip()

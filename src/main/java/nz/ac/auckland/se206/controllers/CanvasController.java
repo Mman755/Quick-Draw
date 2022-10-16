@@ -179,7 +179,7 @@ public abstract class CanvasController extends Controller {
     String randomWord =
         categorySelector.getRandomDiffWord(
             this.user.getCurrentWordSetting(), this.user.getWordList());
-    if (userName.equals("specialUser")) {
+    if (userName.equals("Special")) {
       randomWord = "stairs";
     }
     this.setWord(randomWord);

@@ -21,7 +21,7 @@
       <VBox alignment="TOP_CENTER" layoutY="9.0" prefHeight="191.0" prefWidth="1070.0">
          <children>
             <Label styleClass="header" text="Your Awarded Badges" />
-            <Label styleClass="small-header" text="Hover over a badge to see its description!">
+            <Label styleClass="small-header" text="Hover over an earned badge to see its description!">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

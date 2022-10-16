@@ -158,38 +158,38 @@ public class ZenCanvasController extends CanvasController {
   protected void onDraw() {
     // Set the image to be the current snapshot which is called every second, image is final for
     // predictions
-    final BufferedImage image = getCurrentSnapshot();
+    final BufferedImage imageZen = getCurrentSnapshot();
     // Begin the background thread so the GUI does not freeze when being used
     Task<Void> backgroundTask =
         new Task<>() {
           @Override
           protected Void call() throws Exception {
             // Create a scene builder instance which is how the predictions will be formatted
-            StringBuilder sbf = new StringBuilder();
-            int k = 1;
+            StringBuilder sbfZen = new StringBuilder();
+            int i = 1;
             // Loop to format the string, so it can be displayed to the label
-            for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
               // Append the required formatting to sbf
               // The prediction number (10) being lowest (1) being the best prediction
-              sbf.append(k)
+              sbfZen.append(i)
                   .append(") ")
                   .append(
                       model
-                          .getPredictions(image, 10)
-                          .get(i)
+                          .getPredictions(imageZen, 10)
+                          .get(j)
                           .getClassName()
                           .replace("_", " ")); // Append the predictions themselves
-              k++;
+              i++;
 
-              sbf.append(System.getProperty("line.separator"));
+              sbfZen.append(System.getProperty("line.separator"));
 
               // Check if the word given to the user to draw is within the top 3 predictions of the
               // model, if it is
               // We set the game won status to be true.
               if (wordChosen.equals(
-                      model.getPredictions(image, 10).get(i).getClassName().replace("_", " "))
-                  && i < user.getCurrentAccuracySetting()
-                  && model.getPredictions(image, 10).get(i).getProbability() * 100
+                      model.getPredictions(imageZen, 10).get(j).getClassName().replace("_", " "))
+                  && j < user.getCurrentAccuracySetting()
+                  && model.getPredictions(imageZen, 10).get(j).getProbability() * 100
                       >= (double) user.getCurrentConfidenceSetting()) {
                 enableEndButtons();
               }
@@ -198,7 +198,7 @@ public class ZenCanvasController extends CanvasController {
             // Set the predictions label in the GUI to the string builder sbf
             Platform.runLater(
                 () -> {
-                  predLabel.setText(sbf.toString());
+                  predLabel.setText(sbfZen.toString());
                   changeProgressBarColour();
                 });
 

@@ -17,7 +17,7 @@ import nz.ac.auckland.se206.util.enums.ConfidenceSettings;
 import nz.ac.auckland.se206.util.enums.TimeSettings;
 import nz.ac.auckland.se206.util.enums.WordSettings;
 
-public class GameSettingsController {
+public class GameSettingsController extends Controller {
   private @FXML Label accuracyLabel;
   private @FXML Label wordLabel;
   private @FXML Label timeLabel;

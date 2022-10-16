@@ -3,11 +3,8 @@ package nz.ac.auckland.se206.controllers;
 import com.opencsv.exceptions.CsvException;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +16,7 @@ import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
 import nz.ac.auckland.se206.util.enums.GameMode;
 
-public class MenuController implements Initializable {
+public class MenuController extends Controller {
   private String userName;
   private GameMode currentGameMode;
   @FXML private Button iconButton;
@@ -30,11 +27,8 @@ public class MenuController implements Initializable {
   /**
    * Initialises the GUI by rendering GUI elements and setting the default value of the game mode to
    * normal/classic.
-   *
-   * @param url URL of GUI
-   * @param resourceBundle Resource bundle of GUI
    */
-  public void initialize(URL url, ResourceBundle resourceBundle) {
+  public void initialize() {
     this.currentGameMode = GameMode.NORMAL;
   }
 

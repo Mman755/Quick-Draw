@@ -10,7 +10,7 @@ import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
 
-public class BadgesController {
+public class BadgesController extends Controller {
   @FXML private Label goldTime;
   @FXML private Label goldGames;
   @FXML private Label goldWins;

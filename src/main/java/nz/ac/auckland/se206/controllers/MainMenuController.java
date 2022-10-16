@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.util.SceneManager;
 
-public class MainMenuController {
+public class MainMenuController extends Controller {
 
   @FXML private Button switchProfile;
   @FXML private Button createProfile;

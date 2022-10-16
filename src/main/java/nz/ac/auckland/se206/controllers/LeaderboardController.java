@@ -14,7 +14,7 @@ import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
 
-public class LeaderboardController {
+public class LeaderboardController extends Controller {
   @FXML private TableView<User> leaderboard;
   @FXML private TableColumn<User, String> usernameColumn;
   @FXML private TableColumn<User, Integer> winsColumn;
@@ -44,6 +44,8 @@ public class LeaderboardController {
     fastestTimeColumn.setReorderable(false);
     averageTimeColumn.setReorderable(false);
     leaderboard.setEditable(false);
+
+    // this.setLeaderboardContents(); //set the contents of the leaderboard
   }
 
   /**
@@ -59,7 +61,10 @@ public class LeaderboardController {
     leaderboard.getItems().clear();
     //  adding user information into the leaderboard itself
     for (User user : userList) {
-      leaderboard.getItems().add(user);
+      // only add user to leaderboard if they've played at least one game
+      if (user.getWins() + user.getLosses() > 0) {
+        leaderboard.getItems().add(user);
+      }
     }
     // initially sort leaderboard by number of wins
     leaderboard.getSortOrder().setAll(winsColumn);

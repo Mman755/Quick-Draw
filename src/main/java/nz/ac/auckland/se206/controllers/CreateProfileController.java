@@ -15,7 +15,7 @@ import nz.ac.auckland.se206.userutils.Database;
 import nz.ac.auckland.se206.userutils.User;
 import nz.ac.auckland.se206.util.SceneManager;
 
-public class CreateProfileController {
+public class CreateProfileController extends Controller {
   @FXML private TextField usernameField;
   @FXML private ImageView profPic;
   private int index;

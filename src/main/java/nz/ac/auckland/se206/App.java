@@ -45,6 +45,24 @@ public class App extends Application {
     backgroundSongPlayer.play();
   }
 
+  /** Static method to mute/unmute the music depending on current playing status. */
+  public static void toggleMusicPlaying() {
+    if (isBackgroundMusicPlaying()) {
+      backgroundSongPlayer.setMute(true);
+    } else {
+      backgroundSongPlayer.setMute(false);
+    }
+    SceneManager.toggleAllSpeakerIcons();
+  }
+
+  /**
+   * Static method which checks if the background music is playing or is muted, will return true if
+   * music is playing and false if it is muted.
+   */
+  public static boolean isBackgroundMusicPlaying() {
+    return !backgroundSongPlayer.isMute();
+  }
+
   /**
    * This method is invoked when the application starts. It loads and shows the "Canvas" scene.
    *
